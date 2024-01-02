@@ -2,8 +2,8 @@ import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import React from 'react';
 
 enum themePalette {
-    BG = "#050C16",
-    DBLUE = "#3498DB",
+    BG = "#F5F5F5",
+    MAROON = "#621518",
     FONT_GLOBAL = "'JetBrains mono', monospace"
 }
 
@@ -13,12 +13,12 @@ type ThemeProp = {
 
 const theme = createTheme({
     palette: {
-        mode: 'dark',
+        mode: 'light',
         background: {
             default: themePalette.BG
         },
         primary: {
-            main: themePalette.DBLUE
+            main: themePalette.MAROON
         }
     },
     typography: {
