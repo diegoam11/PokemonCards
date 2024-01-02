@@ -1,13 +1,13 @@
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import { Container, Button } from '@mui/material';
+import { AppRouter } from './Router';
 
 function App() {
   return (
-    <Container maxWidth='xl'>
-      <Button variant='contained'>
-        Click me!
-      </Button>
-    </Container>
+    <BrowserRouter>
+      <AppRouter/>
+    </BrowserRouter>
   );
 }
 

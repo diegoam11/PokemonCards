@@ -34,7 +34,6 @@ const theme = createTheme({
             }
         }
     }
-
 })
 
 export const ThemeConfig: React.FC<ThemeProp>  = ({children}) => {
@@ -43,6 +42,5 @@ export const ThemeConfig: React.FC<ThemeProp>  = ({children}) => {
             <CssBaseline/>
             {children}
         </ThemeProvider>
-        
     )
 }
