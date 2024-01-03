@@ -46,9 +46,9 @@ export const Login: React.FC<{}> = () => {
                             Iniciar Sesión
                         </Typography>
                         <Box onSubmit={handleSubmit} component="form">
-                            <TextField onChange={handleChange} name="username" margin="normal" fullWidth type="text" label="usuario" sx={{ mt: 2, mb: 1 }} required>
+                            <TextField onChange={handleChange} name="username" margin="normal" fullWidth type="text" label="usuario" sx={{ mt: 2, mb: 1 }}>
                             </TextField>
-                            <TextField onChange={handleChange} name="password" margin="normal" fullWidth type="password" label="contraseña" sx={{ mt: 1, mb: 1 }} required>
+                            <TextField onChange={handleChange} name="password" margin="normal" fullWidth type="password" label="contraseña" sx={{ mt: 1, mb: 1 }}>
                             </TextField>
                             <Button fullWidth variant="contained" type="submit" sx={{ mt: 1, mb: 2 }}>
                                 Iniciar sesión
