@@ -6,11 +6,11 @@ import { Login } from "./pages/login";
 
 export const AppRouter: React.FC<{}> = () => {
     return (
-    <Routes>
-        <Route path="/" element={<RouterLayout/>}>
-            <Route path="/" element={<Home/>}></Route>
-        </Route>
-        <Route path="/login" element={<Login/>}></Route>
-    </Routes>
+        <Routes>
+            <Route path="/" element={<RouterLayout />}>
+                <Route path="/" element={<Home />}></Route>
+            </Route>
+            <Route path="/login" element={<Login />}></Route>
+        </Routes>
     )
 } 

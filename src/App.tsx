@@ -1,13 +1,16 @@
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import { Container, Button } from '@mui/material';
 import { AppRouter } from './Router';
+import { NotificationProvider } from './context/notification.context';
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppRouter/>
-    </BrowserRouter>
+    <NotificationProvider>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </NotificationProvider>
+
   );
 }
 

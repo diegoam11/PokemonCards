@@ -4,7 +4,10 @@ import React from 'react';
 enum themePalette {
     BG = "#F5F5F5",
     MAROON = "#621518",
-    FONT_GLOBAL = "'JetBrains mono', monospace"
+    FONT_GLOBAL = "'JetBrains mono', monospace",
+    // alert styles
+    ERROR_MAIN = "#F44336",
+    BG_ERROR_MAIN = "rgba(244, 67, 54, 0.1)"
 }
 
 type ThemeProp = {
@@ -32,14 +35,22 @@ const theme = createTheme({
                     boxShadow: "none",
                 }
             }
+        },
+        MuiAlert: {
+            styleOverrides: {
+                standardError: {
+                    border: `1px solid ${themePalette.ERROR_MAIN}`,
+                    background: themePalette.BG_ERROR_MAIN
+                }
+            }
         }
     }
 })
 
-export const ThemeConfig: React.FC<ThemeProp>  = ({children}) => {
+export const ThemeConfig: React.FC<ThemeProp> = ({ children }) => {
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline/>
+            <CssBaseline />
             {children}
         </ThemeProvider>
     )
