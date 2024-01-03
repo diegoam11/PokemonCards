@@ -1,6 +1,7 @@
 import { Box, Button, Container, Grid, Paper, TextField, Typography, useRadioGroup } from "@mui/material";
 import React, { useState } from "react";
 import { useNotification } from "../../context/notification.context";
+import { LoginValidate } from "../../utils/validateForm";
 
 interface Credentials {
     username: string
@@ -15,7 +16,7 @@ const INITIAL_STATE = {
 export const Login: React.FC<{}> = () => {
 
     const [credentials, setCredentials] = useState<Credentials>(INITIAL_STATE)
-    const { getError } = useNotification()
+    const { getError, getSuccess} = useNotification()
 
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,8 +29,12 @@ export const Login: React.FC<{}> = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const { username, password } = credentials
-        getError("Credenciales: " + "\n" + username + "\n" + password)
+        LoginValidate.validate(credentials).then(() => {
+            getSuccess(JSON.stringify(credentials))
+        }).catch((error) => {
+            getError(error.message)
+        })
+        
     }
 
     return (

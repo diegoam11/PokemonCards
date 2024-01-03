@@ -4,6 +4,7 @@ import React, { createContext, useContext, useState } from "react"
 
 interface ContextProps {
     getError: (msg: string) => void
+    getSuccess: (msg: string) => void
 }
 
 interface ProviderProps {
@@ -28,8 +29,15 @@ export const NotificationProvider: React.FC<ProviderProps> = ({ children }) => {
         setOpen(true)
     }
 
+    const getSuccess = (msg: string) => {
+        setSeverity("success")
+        setMsg(msg)
+        setOpen(true)
+    }
+
     const values = {
-        getError
+        getError,
+        getSuccess
     }
 
     return (
