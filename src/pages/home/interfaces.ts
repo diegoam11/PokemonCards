@@ -4,6 +4,7 @@ export interface PokemonApi {
 }
 
 export interface MyPokemon {
+  id:number
   name: string;
   sprites: Sprites;
 }

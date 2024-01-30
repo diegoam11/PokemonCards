@@ -10,7 +10,7 @@ import { HeaderComponent, CardComponent } from "../../components";
 import { pokemonsApi } from "../../api/pokemons.api";
 import { MyPokemon, PokemonApi } from "./interfaces";
 
-const INIT_MY_POKEMON = { name: "", sprites: { front_default: "" } };
+const INIT_MY_POKEMON = { id: 0, name: "", sprites: { front_default: "" } };
 
 export const Home: React.FC = () => {
   const [myPokemons, setMyPokemons] = useState<MyPokemon[]>([]);
@@ -36,7 +36,7 @@ export const Home: React.FC = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(() => setLoading(false), 500);
+        setTimeout(() => setLoading(false), 400);
       }
     };
 
@@ -47,6 +47,7 @@ export const Home: React.FC = () => {
     try {
       const response = await pokemonsApi.getOne(name);
       const myPokemon: MyPokemon = {
+        id: response.data.id,
         name: response.data.name,
         sprites: { front_default: response.data.sprites.front_default },
       };
@@ -75,19 +76,17 @@ export const Home: React.FC = () => {
         <>
           <Grid container spacing={2}>
             {myPokemons.map((pokemon, index) => (
-              <>
-                <Grid item xs={3}>
+                <Grid key={index} item xs={3}>
                   <CardComponent
-                    key={index}
+                    id={pokemon.id}
                     name={pokemon.name}
                     img={pokemon.sprites.front_default}
                   />
                 </Grid>
-              </>
             ))}
           </Grid>
           <Box sx={{ display: "flex", justifyContent: "center", my: 2 }}>
-            <Pagination count={count} page={page} onChange={handleChange} />
+            <Pagination variant="outlined" color="primary"  count={count} page={page} onChange={handleChange} />
           </Box>
         </>
       )}

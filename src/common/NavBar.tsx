@@ -10,7 +10,7 @@ import { Button, Grid, Stack } from "@mui/material";
 export const NavBar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+      <AppBar position="sticky">
         <Toolbar>
           <Container maxWidth="lg">
             <Grid

@@ -1,0 +1,1 @@
+export {favPokemonsSlice} from './favorites.slice'
